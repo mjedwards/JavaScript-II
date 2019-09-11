@@ -3,7 +3,13 @@
 // Keep it simple! Remember a closure is just a function
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
+let name = 'bruce lee';
 
+function myFavoriteMartialArtist () {
+  console.log(name);
+}
+
+myFavoriteMartialArtist();
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
@@ -12,11 +18,20 @@
 const counterMaker = () => {
   // IMPLEMENTATION OF counterMaker:
   // 1- Declare a `count` variable with a value of 0. We will be mutating it, so declare it using `let`!
+    let count = 0;
   // 2- Declare a function `counter`. It should increment and return `count`.
+    function counter () {
+      return count = count + 1;
+    }
   //      NOTE: This `counter` function, being nested inside `counterMaker`,
   //      "closes over" the `count` variable. It can "see" it in the parent scope!
   // 3- Return the `counter` function.
+
+  console.log(counter());
 };
+
+counterMaker();
+
 // Example usage: const myCounter = counterMaker();
 // myCounter(); // 1
 // myCounter(); // 2
@@ -24,6 +39,24 @@ const counterMaker = () => {
 // ==== Challenge 3: Make `counterMaker` more sophisticated ====
 // It should have a `limit` parameter. Any counters we make with `counterMaker`
 // will refuse to go over the limit, and start back at 1.
+const counterMaker1 = () => {
+  
+    let count = 0;
+    let limit = 3;
+
+    function counter () {
+      if (count > limit) {
+        return count = 1;
+      } else {
+        return count = count + 1;
+      }
+    }
+
+
+  console.log(counter());
+};
+
+counterMaker1();
 
 // ==== Challenge 4: Create a counter function with an object that can increment and decrement ====
 const counterFactory = () => {
